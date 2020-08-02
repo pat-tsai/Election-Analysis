@@ -3,6 +3,7 @@
 ## Overview of Election Audit
 In the exercises building up to this challenge, we were instructed to create code that would calculate total number of votes cast, complete list of candidates participating, votes and percentage of votes each candidate received, and determine the winner of the election based on popular vote. In this challenge, we were instructed to add additional functionality to the existing code, including voter turnout from each county, percentage of each votes from each county, and county with highest turnout.  
 
+
 ## Election-Audit Results
 Shown below is the terminal output for the election results:
 
@@ -17,14 +18,66 @@ Shown below is the terminal output for the election results:
  - Diana DeGette was the winner of the elction, receiving 272,892 or 73.8% of the total votes
 
 
+## Election-Audit Summary: modifying the script for more applications
+Currently, the script is only able to analyze datasets located at the path "Resources/election_results.csv", as shown by the code `file_to_load = os.path.join("Resources/election_results.csv")`. We could make the following modifications to allow for more flexibility in the input file: 
+```
+input_path = input("Enter dataset path: ")
+file_to_load = os.path.join(input_path)
+```
+By making these changes, we can allow the user to specify the location of a dataset anywhere on their computer, as well as analyze any number of datasets. 
 
-Overview of Election Audit: Explain the purpose of this election audit analysis.
+Futhermore, the current script has hardcoded values for both the candidate and county option lists and votes dictionaries. Since we want to script to analyze election results, we will always require candidate info so we can leave those values hardcoded. However, in other elections, instead of finding statistics for counties we may want to analyze voter participation by state, ethnicity, or age. We can account for these additional factors by once again taking user input with the following code, and placing a variable inside the f-strings to output the appropriate name:
 
-Election-Audit Results: Using a bulleted list, address the following election outcomes. Use images or examples of your code as support where necessary.
 
-How many votes were cast in this congressional election?
-Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
-Which county had the largest number of votes?
-Provide a breakdown of the number of votes and the percentage of the total votes each candidate received.
-Which candidate won the election, what was their vote count, and what was their percentage of the total votes?
-Election-Audit Summary: In a summary statement, provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
+old code: 
+```python
+# 1: Create a county list and county votes dictionary.
+county_options = []
+county_votes = {}
+
+# 2: Track the largest county and county voter turnout.
+highest_county_name = ''
+highest_county_turnout = 0
+...
+...
+    # Print the final vote count (to terminal)
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n\n"
+        f"County Votes:\n")
+        
+    # 7: Print the county with the largest turnout to the terminal.
+    winning_county_summary = (f"\n-------------------------\nLargest County Turnout: "
+                              f"{highest_county_name}\n-------------------------\n")
+    print(winning_county_summary)
+```
+
+modified code:
+```python
+# 1: Create a generic list and votes dictionary.
+var1_options = []
+var1_votes = {}
+
+# accounting for any input variable
+var1 = input("Enter desired factor to be analyzed: ")
+
+# 2: Track the largest user input variable and voter turnout.
+var1_highest = ''
+var1_turnout = 0
+
+...
+    # Print the final vote count (to terminal)
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n\n"
+---->   f"{var1} Votes:\n")
+        
+    # 7: Print user input var with the largest turnout to the terminal.
+    winning_county_summary = (f"\n-------------------------\nLargest {var1} Turnout: "
+---->                         f"{var1_highest}\n-------------------------\n")
+    print(winning_county_summary)
+```
