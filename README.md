@@ -5,6 +5,7 @@ In the exercises building up to this challenge, we were instructed to create cod
 
 ## Election-Audit Results
 Shown below is the terminal output for the election results:
+
 ![Screenshots](Resources/election_results.PNG)
 - The total number of votes cast in this election was 369,711
 - Out of the total number of votes, Jefferson county provided 38,855 (10.5%), Denver county provided 306,055 (82.8%), and Arapahoe provided 24,801 (6.7%)
