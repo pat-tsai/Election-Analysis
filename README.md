@@ -1,7 +1,7 @@
 # Election-Analysis
 
 ## Overview of Election Audit
-In the exercises building up to this challenge, we were instructed to create code that would calculate total number of votes cast, complete list of candidates participating, votes and percentage of votes each candidate received, and determine the winner of the election based on popular vote. In this challenge, we were instructed to add additional functionality to the existing code, including voter turnout from each county, percentage of each votes from each county, and county with highest turnout.  
+In the exercises building up to this challenge, we were instructed to create code that would calculate the total number of votes cast, complete list of candidates participating, cumulative votes and percentage of votes each candidate received, and determine the winner of the election based on popular vote. In this challenge, we were instructed to add additional functionality to the existing code, including voter turnout from each county, percentage of each votes from each county, and county with highest turnout.  
 
 
 ## Election-Audit Results
@@ -15,7 +15,7 @@ Shown below is the terminal output for the election results:
   - Charles Casper Stockham: 85,213 (23.0%)
   - Diana DeGette: 272,892 (73.8%)
   - Raymon Anthony Doane: 11,606 (3.1%)
- - Diana DeGette was the winner of the elction, receiving 272,892 or 73.8% of the total votes
+ - Diana DeGette was the winner of the elction, receiving 272,892 (73.8%) of the total votes
 
 
 ## Election-Audit Summary: modifying the script for more applications
@@ -26,7 +26,7 @@ file_to_load = os.path.join(input_path)
 ```
 By making these changes, we can allow the user to specify the location of a dataset anywhere on their computer, as well as analyze any number of datasets. 
 
-Futhermore, the current script has hardcoded values for both the candidate and county option lists and votes dictionaries. Since we want to script to analyze election results, we will always require candidate info so we can leave those values hardcoded. However, in other elections, instead of finding statistics for counties we may want to analyze voter participation by state, ethnicity, or age. We can account for these additional factors by once again taking user input with the following code, and placing a variable inside the f-strings to output the appropriate name:
+Futhermore, the current script has hardcoded values for both the candidate and county option lists and votes dictionaries. Since the purpose of the script is to analyze any election results, we will always require candidate info so we can leave those values hardcoded. However, in other elections, instead of finding statistics for counties we may want to analyze other factors including voter participation by state, ethnicity, or age. We can account for these additional factors by once again taking user input with the following code, and placing a variable inside the f-strings to output the appropriate factor name:
 
 
 old code: 
